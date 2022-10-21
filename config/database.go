@@ -9,11 +9,11 @@ import (
 )
 
 func Connect() *gorm.DB {
-	dbuser := "muthus"
-	dbpass := "P@ssw0rd"
-	dbhost := "localhost"
-	dbname := "final_project"
-	dbport := "5432"
+	dbuser := "postgres"
+	dbpass := "LW7KQjMDaF56V9IJ01DY"
+	dbhost := "containers-us-west-49.railway.app"
+	dbname := "railway"
+	dbport := "6929"
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Shanghai", dbhost, dbuser, dbpass, dbname, dbport)
 	db, errorDB := gorm.Open(postgres.Open(dsn), &gorm.Config{})
