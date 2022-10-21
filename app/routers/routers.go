@@ -2,6 +2,7 @@ package routers
 
 import (
 	"log"
+	"os"
 
 	"final_assignment/app/handler"
 	"final_assignment/app/middleware"
@@ -10,6 +11,8 @@ import (
 )
 
 func InitRouter() {
+	var PORT = os.Getenv("PORT")
+
 	UserHandler := handler.NewUserHandler()
 	PhotoHandler := handler.NewPhotoHandler()
 	CommentHandler := handler.NewCommentHandler()
@@ -39,5 +42,5 @@ func InitRouter() {
 	routers.DELETE("/SocialMedia/:socialMediaId", SocialMediaHandler.RemoveSocialMedia)
 
 	log.Println("Start Server")
-	r.Run(":2020")
+	r.Run(":" + PORT)
 }
